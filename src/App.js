@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 function App() {
 
 const users = useSelector((state)=>state.users)
-//console.log(users)
+console.log(users)
 
   return (
     <div className="contanier">
@@ -22,7 +22,21 @@ const users = useSelector((state)=>state.users)
     </tr>
   </thead>
   <tbody>
-    
+  
+     {users.map((user,index)=>(
+      <tr key={index}>
+        <td>  {user.id} </td>
+        <td>  {user.name} </td>
+        <td>  {user.email} </td>
+        <td>
+          <button className='btn btn-sm btn-primary' >  Edit </button>
+          <button className='btn btn-sm btn-danger ms-2'>   Delete </button>
+        </td>
+      </tr>
+
+     ))}
+
+
   </tbody>
 </table>
 

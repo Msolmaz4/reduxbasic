@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { UserList } from '../Data'
 
+//boyle yapinca dikkat et cekerekn gelmiyor buead iki dafa yaz users.users gibi
+{/*
 const initialState = {
   users: UserList
-}
+}*/}
 
 
 
@@ -11,7 +13,7 @@ const initialState = {
 
 export const UserSlice = createSlice({
     name: 'users',
-    initialState,
+    initialState:UserList,
     reducers: {
       
     },
