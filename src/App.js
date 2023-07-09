@@ -1,46 +1,23 @@
 
 import React from 'react'
-import { useSelector } from 'react-redux'
+import Home from './Home';
+import { BrowserRouter,Routes, Route } from 'react-router-dom';
+import Create from './Create';
+
 
 
 function App() {
 
-const users = useSelector((state)=>state.users)
-console.log(users)
+
 
   return (
-    <div className="contanier">
-
-  <h2 className='btn btn-success my-3'> create +</h2>
-  <table className='table' >
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Email</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-  
-     {users.map((user,index)=>(
-      <tr key={index}>
-        <td>  {user.id} </td>
-        <td>  {user.name} </td>
-        <td>  {user.email} </td>
-        <td>
-          <button className='btn btn-sm btn-primary' >  Edit </button>
-          <button className='btn btn-sm btn-danger ms-2'>   Delete </button>
-        </td>
-      </tr>
-
-     ))}
-
-
-  </tbody>
-</table>
-
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/create' element={<Create/>}/>
+      <Route path='/' element={<Home/>}/>
+    </Routes>
+    </BrowserRouter>
   );
 }
 
