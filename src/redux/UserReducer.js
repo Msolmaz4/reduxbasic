@@ -7,7 +7,8 @@ const initialState = {
   users: UserList
 }*/}
 
-
+//burada dikkat edilecek olan statet yalamak icin useSelector 
+//reducer icindekin yaklamak icin dispatch
 
 
 
@@ -16,10 +17,15 @@ export const UserSlice = createSlice({
     initialState:UserList,
     reducers: {
       
+        addUser:(state,action)=>{
+            console.log(action)
+        }
+    
+      
     },
   })
   
   // Action creators are generated for each case reducer function
   //export const { } = UserReducerSlice.actions
-  
+  export const {addUser} = UserSlice.actions
   export default UserSlice.reducer
