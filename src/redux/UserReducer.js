@@ -18,8 +18,20 @@ export const UserSlice = createSlice({
     reducers: {
       
         addUser:(state,action)=>{
-            console.log(action)
+            //console.log(action) burda action geldigini gorduk simdi bunnu payload yuklayacegiz
+            state.push(action.payload)
+        },
+        updateUser:(state,action)=>{
+ //console.log(action) geleni gormwk
+ const {id,name,email}= action.payload
+ const uu =state.find(user=>user.id == id)
+ if(uu){
+    uu.name =name;
+    uu.email=email
+ }
+
         }
+
     
       
     },
@@ -27,5 +39,5 @@ export const UserSlice = createSlice({
   
   // Action creators are generated for each case reducer function
   //export const { } = UserReducerSlice.actions
-  export const {addUser} = UserSlice.actions
+  export const {addUser ,updateUser} = UserSlice.actions
   export default UserSlice.reducer

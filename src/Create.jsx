@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { addUser } from './redux/UserReducer'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 
 const Create = () => {
@@ -8,12 +9,17 @@ const Create = () => {
 const [name,setName] = useState("")
 const [email,setEmail]= useState("")
 const dispatch = useDispatch()
+const navi = useNavigate()
+
+
 const users = useSelector((state)=>state.users)
 const handle1 = (e)=>{
     e.preventDefault()
     //console.log(name,email)
 
     dispatch(addUser({id:users[users.length - 1].id+1,name,email}))
+
+    navi('/')
 
 }
 
