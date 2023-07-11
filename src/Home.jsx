@@ -1,13 +1,22 @@
 
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom';
+import { deleteUser } from './redux/UserReducer';
 
 
 function Home() {
 
 const users = useSelector((state)=>state.users)
 //console.log(users)
+const dispatch = useDispatch()
+const navi = useNavigate()
+
+const handleDelete=(id)=>{
+    dispatch(deleteUser({id}))
+    
+
+}
 
   return (
     <div className="contanier">
